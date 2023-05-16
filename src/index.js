@@ -5,7 +5,7 @@ import leftBlock from './modules/left-block/left-block';
 import rightBlock from './modules/right-block/right-block';
 
 const app = () => {
-  const mainPage = document.createElement('div');
+  const mainPage = document.getElementsByTagName('div')[0];
   mainPage.classList.add('main-page');
 
   const blocksContainer = document.createElement('div');
@@ -15,7 +15,6 @@ const app = () => {
 
   mainPage.appendChild(headerTitle());
   mainPage.appendChild(blocksContainer);
-  document.body.appendChild(mainPage);
 };
 
 app();
