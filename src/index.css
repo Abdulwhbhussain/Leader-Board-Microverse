@@ -1,4 +1,4 @@
-/* * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -15,6 +15,8 @@ body {
 .main-page {
   display: flex;
   flex-direction: column;
+
+  /* align-items: center; */
   justify-content: center;
   min-height: 80vh;
   margin-top: 50px;
@@ -22,6 +24,8 @@ body {
   padding: 50px;
   padding-left: 100px;
   padding-right: 100px;
+
+  /* border: 1px solid red; */
 }
 
 .blocks-container {
@@ -29,4 +33,6 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-} */
+
+  /* border: 1px solid blue; */
+}
