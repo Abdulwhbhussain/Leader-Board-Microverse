@@ -8,13 +8,15 @@ const app = () => {
   const mainPage = document.createElement('div');
   mainPage.classList.add('main-page');
 
-  const blocksContainer = document.createElement('div');
-  blocksContainer.classList.add('blocks-container');
-  blocksContainer.appendChild(leftBlock());
-  blocksContainer.appendChild(rightBlock());
+  // const blocksContainer = document.createElement('div');
+  // blocksContainer.classList.add('blocks-container');
+  // blocksContainer.appendChild(leftBlock());
+  // blocksContainer.appendChild(rightBlock());
 
   mainPage.appendChild(headerTitle());
-  mainPage.appendChild(blocksContainer);
+  // mainPage.appendChild(blocksContainer);
+  mainPage.appendChild(leftBlock());
+  mainPage.appendChild(rightBlock());
   document.body.appendChild(mainPage);
 };
 
