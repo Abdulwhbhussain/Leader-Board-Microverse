@@ -8,9 +8,13 @@ const app = () => {
   const mainPage = document.createElement('div');
   mainPage.classList.add('main-page');
 
+  const blocksContainer = document.createElement('div');
+  blocksContainer.classList.add('blocks-container');
+  blocksContainer.appendChild(leftBlock());
+  blocksContainer.appendChild(rightBlock());
+
   mainPage.appendChild(headerTitle());
-  mainPage.appendChild(leftBlock());
-  mainPage.appendChild(rightBlock());
+  mainPage.appendChild(blocksContainer);
   document.body.appendChild(mainPage);
 };
 
