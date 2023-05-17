@@ -84,10 +84,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('name').value = '';
         document.getElementById('score').value = '';
         alert('Your score was added correctly!');
-        return;
       } else {
         alert('There was an error adding your score, please try again.');
-        return;
       }
     });
 
