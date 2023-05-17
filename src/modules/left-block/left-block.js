@@ -16,13 +16,13 @@ const leftBlock = () => {
   const leftBlockList = document.createElement('ul');
   leftBlockList.classList.add('left-block-list');
   leftBlockList.innerHTML = `
-  <li class="left-block-list-item">Player 1: 100</li>
-  <li class="left-block-list-item">Player 2: 80</li>
-  <li class="left-block-list-item">Player 3: 70</li>
-  <li class="left-block-list-item">Player 4: 65</li>
-  <li class="left-block-list-item">Player 5: 60</li>
-  <li class="left-block-list-item">Player 6: 55</li>
-  <li class="left-block-list-item">Player 7: 50</li>
+  <li class="left-block-list-item">Player 1: 100 - Dummy</li>
+  <li class="left-block-list-item">Player 2: 80 - Dummy</li>
+  <li class="left-block-list-item">Player 3: 70 - Dummy</li>
+  <li class="left-block-list-item">Player 4: 65 - Dummy</li>
+  <li class="left-block-list-item">Player 5: 60 - Dummy</li>
+  <li class="left-block-list-item">Player 6: 55 - Dummy</li>
+  <li class="left-block-list-item">Player 7: 50 - Dummy</li>
   `;
 
   leftBlock.appendChild(leftBlockTitle);
