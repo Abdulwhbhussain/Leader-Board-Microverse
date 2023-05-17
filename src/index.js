@@ -34,7 +34,7 @@ const getGameScore = async (url) => {
 };
 
 const postGameScore = async (url, name, score) => {
-  const data = { user: name, score: score };
+  const data = { user: name, score };
   const response = await fetch(url, {
     method: 'POST',
     body: JSON.stringify(data),
@@ -42,7 +42,7 @@ const postGameScore = async (url, name, score) => {
   });
   const json = await response.json();
 
-  const result = json.result;
+  const { result } = json;
 
   return result;
 };
