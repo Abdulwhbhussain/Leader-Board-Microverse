@@ -17,50 +17,87 @@ const app = () => {
   mainPage.appendChild(blocksContainer);
 };
 
-app();
-
-document
-  .getElementsByClassName('right-block-form')[0]
-  .addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Your score function is in development, please try again later.');
-    // const name = document.getElementById('name').value;
-    // const score = document.getElementById('score').value;
-    // const data = { user: name, score: parseInt(score, 10) };
-    // const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/8qLJ9Y8d1qKjQsH9QZ2p/scores/';
-    // fetch(url, {
-    //   method: 'POST',
-    //   body: JSON.stringify(data),
-    //   headers: { 'Content-type': 'application/json; charset=UTF-8' },
-    // })
-    //   .then((response) => response.json())
-    //   .then((json) => {
-    //     if (json.result === 'Leaderboard score created correctly.') {
-    //       document.getElementById('name').value = '';
-    //       document.getElementById('score').value = '';
-    //       alert('Your score was added correctly!');
-    //     } else {
-    //       alert('There was an error adding your score, please try again.');
-    //     }
-    //   });
+const gameIdRequest = async () => {
+  const url =
+    'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/';
+  const data = { name: 'Leader Board of Microverse Game' };
+  const response = await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: { 'Content-type': 'application/json; charset=UTF-8' },
   });
+  const json = await response.json();
+  const gam_id = json.result.split(' ')[3];
 
-document
-  .getElementsByClassName('left-block-button')[0]
-  .addEventListener('click', () => {
-    alert('Your refresh function is in development, please try again later.');
-    // const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/8qLJ9Y8d1qKjQsH9QZ2p/scores/';
-    // fetch(url)
-    //   .then((response) => response.json())
-    //   .then((json) => {
-    //     const scores = json.result;
-    //     const scoresList = document.getElementsByClassName('left-block-list')[0];
-    //     scoresList.innerHTML = '';
-    //     scores.forEach((score) => {
-    //       const scoreItem = document.createElement('li');
-    //       scoreItem.classList.add('left-block-list-item');
-    //       scoreItem.innerHTML = `${score.user}: ${score.score}`;
-    //       scoresList.appendChild(scoreItem);
-    //     });
-    //   });
+  return gam_id;
+};
+
+const postGameScore = async (url, name, score) => {
+  const data = { user: name, score: score };
+  const response = await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: { 'Content-type': 'application/json; charset=UTF-8' },
   });
+  const json = await response.json();
+
+  const result = json.result;
+
+  return result;
+};
+
+document.addEventListener('DOMContentLoaded', async () => {
+  app();
+
+  let game_id = '';
+  if (localStorage.getItem('game_id')) {
+    game_id = JSON.parse(localStorage.getItem('game_id'));
+  } else {
+    game_id = await gameIdRequest();
+    localStorage.setItem('game_id', JSON.stringify(game_id));
+  }
+
+  const urlToPostAndGet = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${game_id}/scores/`;
+
+  document
+    .getElementsByClassName('right-block-form')[0]
+    .addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+
+      const score =
+        document.getElementById('score').value < 0 ||
+        document.getElementById('score').value > 100
+          ? alert('Your score must be between 0 and 100')
+          : document.getElementById('score').value;
+
+      const result = await postGameScore(urlToPostAndGet, name, score);
+      if (result === 'Leaderboard score created correctly.') {
+        document.getElementById('name').value = '';
+        document.getElementById('score').value = '';
+        alert('Your score was added correctly!');
+      } else {
+        alert('There was an error adding your score, please try again.');
+      }
+    });
+
+  document
+    .getElementsByClassName('left-block-button')[0]
+    .addEventListener('click', () => {
+      alert('Your refresh function is in development, please try again later.');
+      // const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/8qLJ9Y8d1qKjQsH9QZ2p/scores/';
+      // fetch(url)
+      //   .then((response) => response.json())
+      //   .then((json) => {
+      //     const scores = json.result;
+      //     const scoresList = document.getElementsByClassName('left-block-list')[0];
+      //     scoresList.innerHTML = '';
+      //     scores.forEach((score) => {
+      //       const scoreItem = document.createElement('li');
+      //       scoreItem.classList.add('left-block-list-item');
+      //       scoreItem.innerHTML = `${score.user}: ${score.score}`;
+      //       scoresList.appendChild(scoreItem);
+      //     });
+      //   });
+    });
+});
