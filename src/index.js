@@ -72,9 +72,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       e.preventDefault();
       const name = document.getElementById('name').value;
 
-      const score =
-        document.getElementById('score').value < 0 ||
-        document.getElementById('score').value > 100
+      const score = document.getElementById('score').value < 0 || document.getElementById('score').value > 100
           ? alert('Your score must be between 0 and 100')
           : document.getElementById('score').value;
       if (score === undefined) return;
