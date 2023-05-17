@@ -4,11 +4,11 @@ import headerTitle from './modules/header-title/header-title';
 import leftBlock from './modules/left-block/left-block';
 import rightBlock from './modules/right-block/right-block';
 
-const game_name = 'Leader Board of Microverse Game';
-const game_id = 'Zyge2Wfio2c1GwGRvMJj';
+const gameName = 'Leader Board of Microverse Game';
+const gameId = 'Zyge2Wfio2c1GwGRvMJj';
 const game = {
-  name: game_name,
-  id: game_id,
+  name: gameName,
+  id: gameId,
   description: 'This is a Leader Board of Microverse Game created by Wahab!',
 };
 
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   app();
 
-  const urlToPostAndGet = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${game_id}/scores/`;
+  const urlToPostAndGet = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores/`;
 
   const scores = await getGameScore(urlToPostAndGet);
   console.log(scores);
