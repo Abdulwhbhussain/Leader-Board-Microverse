@@ -70,14 +70,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('score').value > 100
           ? alert('Your score must be between 0 and 100')
           : document.getElementById('score').value;
+      if (score === undefined) return;
 
       const result = await postGameScore(urlToPostAndGet, name, score);
       if (result === 'Leaderboard score created correctly.') {
         document.getElementById('name').value = '';
         document.getElementById('score').value = '';
         alert('Your score was added correctly!');
+        return;
       } else {
         alert('There was an error adding your score, please try again.');
+        return;
       }
     });
 
