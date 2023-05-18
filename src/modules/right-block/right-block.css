@@ -1,5 +1,34 @@
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
+.right-block {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.right-block-form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+input {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #e0e0e0;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #828282;
+}
+
+.btn {
+  align-self: flex-end;
+  box-shadow: #000;
+  border: 5px solid #000;
+  padding: 5px 15px;
+  border-radius: 1px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}

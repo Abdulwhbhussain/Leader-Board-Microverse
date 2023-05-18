@@ -13,6 +13,11 @@ const leftBlock = () => {
   leftBlockButton.classList.add('left-block-button');
   leftBlockButton.innerHTML = 'Refresh';
 
+  const leftBlockHeadWrapper = document.createElement('div');
+  leftBlockHeadWrapper.classList.add('left-block-head-wrapper');
+  leftBlockHeadWrapper.appendChild(leftBlockTitle);
+  leftBlockHeadWrapper.appendChild(leftBlockButton);
+
   const leftBlockList = document.createElement('ul');
   leftBlockList.classList.add('left-block-list');
   leftBlockList.innerHTML = `
@@ -24,9 +29,7 @@ const leftBlock = () => {
   <li class="left-block-list-item">Player 6: 55 - Dummy</li>
   <li class="left-block-list-item">Player 7: 50 - Dummy</li>
   `;
-
-  leftBlock.appendChild(leftBlockTitle);
-  leftBlock.appendChild(leftBlockButton);
+  leftBlock.appendChild(leftBlockHeadWrapper);
   leftBlock.appendChild(leftBlockList);
 
   return leftBlock;

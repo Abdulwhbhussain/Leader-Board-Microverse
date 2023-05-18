@@ -14,7 +14,7 @@ const rightBlock = () => {
   rightBlockForm.innerHTML = `
     <input type="text" name="name" id="name" placeholder="Your Name" required>
     <input type="number" name="score" id="score" placeholder="Your Score 0-100" required>
-    <button type="submit" class="btn btn-primary">Add</button>`;
+    <button type="submit" class="btn btn-primary">Submit</button>`;
 
   rightBlock.appendChild(rightBlockTitle);
   rightBlock.appendChild(rightBlockForm);
