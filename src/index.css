@@ -33,6 +33,8 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 80px;
 
   /* border: 1px solid blue; */
 }

@@ -1,5 +1,6 @@
 .right-block {
   width: 40%;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
   gap: 40px;

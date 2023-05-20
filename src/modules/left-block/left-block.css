@@ -1,5 +1,6 @@
 .left-block {
   width: 40%;
+  min-width: 300px;
 }
 
 .left-block-head-wrapper {
